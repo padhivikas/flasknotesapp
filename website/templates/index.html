@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+
+{% block content %}
+
+<div class="container d-flex justify-content-center mt-5">
+<form class="form-floating w-50" method="post">
+  <input type="text" class="form-control" id="note" name="note">
+  <label for="note">Add your note here</label>
+   <div class="d-flex justify-content-end mt-3">
+       <button type="submit" class="btn btn-primary">Add</button>
+   </div>
+</form>
+</div>
+
+
+
+<div class="container mt-5">
+<div class="row">
+
+
+    {% for note in user.notes %}
+    <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text">{{ note.data }}</p>
+        <button class="btn btn-primary" onClick="deleteNote({{ note.id }})">Delete</button>
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+
+</div>
+</div>
+
+
+
+
+
+
+{% endblock%}
